@@ -1,255 +1,261 @@
 <!DOCTYPE html>
 <html lang="id">
   <head>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BakeHug – Homemade Brownies</title>
 
-   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-      /* ===== BODY ===== */
-      body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
+    <!-- GOOGLE FONTS -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
 
-        /* === GRADASI SOFT GLOSSY PREMIUM === */
-        background: linear-gradient(
-          to bottom,
-          #f9f5ee 0%,
-          #f3e2d0 20%,
-          #d6a878 45%,
-          #8a5a34 70%,
-          #3e2414 100%
-        );
-        background-attachment: fixed;
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #f9f6f2;
+        color: #3a1f14;
+        line-height: 1.6;
+      }
+
+      /* ================= HERO ================= */
+      header {
+        background: linear-gradient(135deg, #4b2a1a, #2b150c);
         color: #ffffff;
+        text-align: center;
+        padding: 90px 20px 70px;
+      }
+
+      header img {
+        width: 150px;
+        margin-bottom: 20px;
+      }
+
+      header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        font-size: 18px;
+        opacity: 0.9;
+        margin-bottom: 35px;
+      }
+
+      .hero-btns {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary,
+      .btn-outline {
+        padding: 14px 26px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: 0.3s ease;
+      }
+
+      .btn-primary {
+        background-color: #c89b6a;
+        color: #2b150c;
+      }
+
+      .btn-primary:hover {
+        background-color: #ddb284;
+      }
+
+      .btn-outline {
+        border: 2px solid #ffffff;
+        color: #ffffff;
+      }
+
+      .btn-outline:hover {
+        background-color: #ffffff;
+        color: #2b150c;
+      }
+
+      /* ================= MENU SECTION ================= */
+      section {
+        padding: 80px 20px;
         text-align: center;
       }
 
-      .container {
-        max-width: 480px;
-        margin: auto;
-        padding: 20px;
-      }
-
-      /* ===== LOGO ===== */
-      .logo img {
-        width: 250px;
-        border-radius: 50%;
-        margin-top: 30px;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
-        transition: 0.7s ease;
-      }
-
-      .logo img:hover {
-        box-shadow: 0 0 35px rgba(255, 255, 255, 0.5),
-          0 10px 40px rgba(0, 0, 0, 0.55);
-      }
-
-      /* ===== BRAND ===== */
-      h1 {
-        font-family: "DM Serif Display", serif;
-        font-style: italic;
-        font-weight: 900;
-        font-size: 52px;
-        margin-bottom: 5px;
-        color: #5a2e17;
-        text-shadow: 0 0 5px rgba(255,255,255,0.5);
-      }
-
-      .tagline {
+      section h2 {
         font-family: "Playfair Display", serif;
-        font-size: 20px;
-        font-style: oblique;
-        margin-bottom: 18px;
-        color: #5a2e17;
-        text-shadow: 0 0 10px rgba(255,255,255,0.4);
+        font-size: 36px;
+        margin-bottom: 10px;
       }
 
-      .hours {
-        font-family: "Lora", serif;
-        margin: 5px 0 25px;
-        font-size: 16px;
-        color: #4d2a16;
-        font-weight: bold;
+      .subtitle {
+        color: #6b4a3a;
+        margin-bottom: 50px;
       }
 
-      /* ===== BUTTONS ===== */
-      .btn-group {
-        display: flex;
-        gap: 12px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin: 30px 0;
-      }
-
-      .btn {
-        flex: 1 1 30%;
-        font-family: "DM Serif Display", serif;
-        font-weight: 600;
-        font-size: larger;
-        letter-spacing: 1px;
-        padding: 14px;
-        border-radius: 100px;
-        text-decoration: none;
-        font-weight: 900;
-        background-color: #d6a878 45%;
-        color: #f9f5ee;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.25);
-        transition: 0.4s ease;
-        font-style: oblique;
-      }
-
-      .btn:hover {
-        background-color: #8a5733;
-        transform: translateY(-4px);
-        box-shadow: 0 0 15px rgba(255,255,255,0.5),
-          0 8px 20px rgba(0,0,0,0.35);
-      }
-
-      /* ===== MENU PANEL ===== */
-      .menu-panel {
-        max-width: 480px;
-        margin: 0 auto;
-        padding: 0 10px;
-        overflow: hidden;
-        max-height: 0;
-        opacity: 0;
-        transition: 0.5s ease-in-out;
-      }
-
-      .menu-panel.open {
-        max-height: 2000px;
-        opacity: 1;
-      }
-
-      .menu-title {
-        font-family: "DM Serif Display", serif;
-        font-size: 32px;
-        color: #4d2a16;
-        margin: 25px 0;
-        font-weight: bold;
-        font-style: oblique;
-      }
-
-      /* ===== GRID MENU 3 KOLOM ===== */
       .menu-grid {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 30px;
+        max-width: 1100px;
+        margin: auto;
       }
 
       .menu-card {
-        background: rgba(255, 255, 255, 0.15);
-        border: 1px solid rgba(255, 255, 255, 0.25);
-        padding: 12px;
-        border-radius: 15px;
-        text-align: center;
+        background-color: #ffffff;
+        border-radius: 18px;
+        padding: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         transition: 0.3s ease;
       }
 
       .menu-card:hover {
-        background: rgba(255,255,255,0.25);
-        transform: translateY(-3px);
+        transform: translateY(-6px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
       }
 
       .menu-card img {
         width: 100%;
-        border-radius: 10px;
-        margin-bottom: 6px;
+        border-radius: 14px;
+        margin-bottom: 15px;
       }
 
       .menu-card h3 {
-        font-family: "DM Serif Display", serif;
-        color: #3e1f11;
-        font-size: 16px;
+        font-family: "Playfair Display", serif;
+        margin-bottom: 6px;
+        font-size: 20px;
       }
 
       .price {
-        color: #3e1f11;
         font-weight: 600;
-        margin-top: 4px;
-        font-size: 13px;
-        font-family: cursive;
+        color: #8a5a34;
+        margin-bottom: 15px;
       }
 
-      /* ===== FOOTER ===== */
-      .footer {
-        font-family: "Lora", serif;
-        margin-top: 60px;
+      .order-btn {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 10px 18px;
+        background-color: #4b2a1a;
+        color: #ffffff;
+        border-radius: 20px;
+        text-decoration: none;
         font-size: 14px;
-        opacity: 0.;
-        padding-bottom: 40px;
-        color: #d6a878;
+        transition: 0.3s ease;
+      }
+
+      .order-btn:hover {
+        background-color: #6b3e2a;
+      }
+
+      /* ================= FOOTER ================= */
+      footer {
+        background-color: #2b150c;
+        color: #ffffff;
+        text-align: center;
+        padding: 30px 15px;
+        font-size: 14px;
       }
     </style>
   </head>
-
   <body>
-    <div class="container">
-      <div class="logo">
-        <img src="logo_bakehug.jpg" alt="logo_bakehug"/>
-      </div>
-
+    <!-- HERO -->
+    <header>
+      <img src="logo_bakehug.png" alt="BakeHug Logo" />
       <h1>BakeHug</h1>
-      <div class="tagline"><em>"Sweet and Comfort in Every Bite🍫"</em></div>
-      <div class="hours">Buka Senin - Jumat • 09.00 - 16.00 WIB</div>
-
-      <div class="btn-group">
-        <a class="btn menu-trigger" href="javascript:void(0)" onclick="toggleMenu()">Menu</a>
-        <a class="btn" href="https://instagram.com/bakehug_ofc" target="_blank">Instagram</a>
-        <a class="btn" href="https://wa.me/+6289522434115" target="_blank">Order on WhatsApp</a>
+      <p>Sweet Comfort in Every Bite 🍫</p>
+      <div class="hero-btns">
+        <a
+          href="https://instagram.com/bakehug_ofc"
+          target="_blank"
+          class="btn-outline"
+          >Instagram</a
+        >
+        <a
+          href="https://wa.me/6289522434115"
+          target="_blank"
+          class="btn-primary"
+          >Order via WhatsApp</a
+        >
       </div>
+    </header>
 
-      <!-- MENU PANEL -->
-      <div id="menuPanel" class="menu-panel">
-        <h2 class="menu-title">Menu BakeHug</h2>
+    <!-- MENU -->
+    <section>
+      <h2>Menu Brownies</h2>
+      <p class="subtitle">
+        Pilih brownies favoritmu dan pesan langsung via WhatsApp
+      </p>
 
-        <div class="menu-grid">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <img src="fudgy.jpeg" alt="Classic Fudgy" />
+          <h3>Classic Fudgy</h3>
+          <p class="price">Rp 25.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
 
-          <!-- ITEM 1 -->
-          <div class="menu-card">
-            <img src="fudgy2.jpeg.jpg" alt="Classic Fudgy Brownies"/>
-            <h3>Classic Fudgy Brownies</h3>
-            <p class="price">Rp 25.000</p>
-          </div>
+        <div class="menu-card">
+          <img src="redvelvet.jpg" alt="Red Velvet" />
+          <h3>Red Velvet</h3>
+          <p class="price">Rp 35.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
 
-          <!-- ITEM 2 -->
-          <div class="menu-card">
-            <img src="red velvet.jpg" alt="Cheesy Sprinkle Brownies"/>
-            <h3>Red Velvet Brownies</h3>
-            <p class="price">Rp 35.000</p>
-          </div>
+        <div class="menu-card">
+          <img src="matcha.jpg" alt="Matcha" />
+          <h3>Matcha Brownies</h3>
+          <p class="price">Rp 45.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
 
-          <!-- ITEM 3 -->
-          <div class="menu-card">
-            <img src="matcha.jpg" alt="Almond Bliss Brownies"/>
-            <h3>Matcha Brownies</h3>
-            <p class="price">Rp 45.000</p>
-          </div>
+        <div class="menu-card">
+          <img src="fudgy2.jpeg.jpg" alt="Choco Chip" />
+          <h3>Choco Chip Storm</h3>
+          <p class="price">Rp 30.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
 
+        <div class="menu-card">
+          <img src="almond.jpeg" alt="Nutty Hug" />
+          <h3>Nutty Hug</h3>
+          <p class="price">Rp 40.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+          <img src="oreo.jpeg" alt="Cheese Brownies" />
+          <h3>Cheese Delight</h3>
+          <p class="price">Rp 38.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+          <img src="stoberi.jpeg" alt="Cheese Brownies" />
+          <h3>Cheese Delight</h3>
+          <p class="price">Rp 38.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+        </div>
+
+        <div class="menu-card">
+          <img src="keju.jpeg" alt="Cheese Brownies" />
+          <h3>Cheese Delight</h3>
+          <p class="price">Rp 38.000</p>
+          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
         </div>
       </div>
+    </section>
 
-      <div class="footer">
-        © 2025 BakeHug, Homemade Brownies  
-        <br>Palembang, Indonesia
-      </div>
-    </div>
-
-    <script>
-      function toggleMenu() {
-        const panel = document.getElementById("menuPanel");
-        const btn = document.querySelector(".menu-trigger");
-
-        panel.classList.toggle("open");
-
-        btn.textContent = panel.classList.contains("open")
-          ? "Tutup Menu"
-          : "Menu";
-      }
-    </script>
+    <!-- FOOTER -->
+    <footer>© 2025 BakeHug Brownies • Palembang, Indonesia</footer>
   </body>
 </html>
-
