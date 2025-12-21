@@ -7,257 +7,472 @@
 
     <!-- GOOGLE FONTS -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&family=Quicksand:wght@400;600&display=swap"
       rel="stylesheet"
     />
 
+    <!-- ICON -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
+      html,
       body {
-        font-family: "Poppins", sans-serif;
-        background-color: #f9f6f2;
-        color: #3a1f14;
-        line-height: 1.6;
+        margin: 0;
+        min-height: 100%;
+        background: linear-gradient(160deg, #fff7ee, #f1dfc8, #e6c8a1);
+        background-attachment: fixed;
+        font-family: "Quicksand", sans-serif;
+        color: #4a2a1a;
       }
 
-      /* ================= HERO ================= */
-      header {
-        background: linear-gradient(135deg, #4b2a1a, #2b150c);
-        color: #ffffff;
-        text-align: center;
-        padding: 90px 20px 70px;
-      }
-
-      header img {
-        width: 150px;
-        margin-bottom: 20px;
-      }
-
-      header h1 {
-        font-family: "Playfair Display", serif;
-        font-size: 48px;
-        margin-bottom: 10px;
-      }
-
-      header p {
-        font-size: 18px;
-        opacity: 0.9;
-        margin-bottom: 35px;
-      }
-
-      .hero-btns {
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        background: rgba(255, 255, 255, 0.9);
         display: flex;
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 22px;
       }
 
-      .btn-primary,
-      .btn-outline {
-        padding: 14px 26px;
-        border-radius: 30px;
+      nav a {
+        margin-left: 14px;
+        font-weight: 600;
+        color: #6b3e27;
+        cursor: pointer;
         text-decoration: none;
-        font-weight: 500;
-        transition: 0.3s ease;
+        padding: 6px 12px;
+        border-radius: 999px;
+        transition: 0.25s;
       }
 
-      .btn-primary {
-        background-color: #c89b6a;
-        color: #2b150c;
+      nav a:hover {
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        transform: scale(1.05);
       }
 
-      .btn-primary:hover {
-        background-color: #ddb284;
+      nav a.active {
+        background: #8a5a34;
+        color: #fff;
       }
 
-      .btn-outline {
-        border: 2px solid #ffffff;
-        color: #ffffff;
-      }
-
-      .btn-outline:hover {
-        background-color: #ffffff;
-        color: #2b150c;
-      }
-
-      /* ================= MENU SECTION ================= */
-      section {
-        padding: 80px 20px;
+      .page {
+        display: none;
+        max-width: 620px;
+        margin: auto;
+        padding: 40px 20px;
         text-align: center;
+        animation: fade 0.35s ease;
       }
 
-      section h2 {
-        font-family: "Playfair Display", serif;
-        font-size: 36px;
-        margin-bottom: 10px;
+      .page.active {
+        display: block;
       }
 
-      .subtitle {
-        color: #6b4a3a;
-        margin-bottom: 50px;
+      @keyframes fade {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .logo img {
+        width: 170px;
+        border-radius: 50%;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        transition: box-shadow 0.3s ease, transform 0.2s ease;
+      }
+
+      .logo img:hover {
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        transform: scale(1.05);
+      }
+
+      .mini-logo {
+        width: 60px;
+        margin: 12px auto 0;
+        opacity: 0.85;
+      }
+
+      h1 {
+        font-family: "Fredoka";
+        font-size: 44px;
+      }
+
+      .btn {
+        background: #8a5a34;
+        color: #fff;
+        border-radius: 999px;
+        padding: 12px 26px;
+        font-weight: 600;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 14px;
+        transition: transform 0.2s ease, box-shadow 0.25s ease;
+      }
+
+      .btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       }
 
       .menu-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-        gap: 30px;
-        max-width: 1100px;
-        margin: auto;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        margin-top: 28px;
       }
 
       .menu-card {
-        background-color: #ffffff;
-        border-radius: 18px;
-        padding: 20px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-        transition: 0.3s ease;
+        background: #fff;
+        border-radius: 22px;
+        padding: 16px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+        transition: box-shadow 0.3s ease, transform 0.2s ease;
+        cursor: pointer;
       }
 
       .menu-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+        transform: scale(1.03);
       }
 
       .menu-card img {
         width: 100%;
-        border-radius: 14px;
-        margin-bottom: 15px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 16px;
       }
 
-      .menu-card h3 {
-        font-family: "Playfair Display", serif;
-        margin-bottom: 6px;
-        font-size: 20px;
+      .menu-card input.qty-input {
+        width: 60px;
+        padding: 6px;
+        margin: 8px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        text-align: center;
       }
 
-      .price {
+      .cart {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: -100%;
+        background: #fff;
+        border-radius: 26px 26px 0 0;
+        padding: 22px;
+        transition: 0.45s;
+        z-index: 50;
+        box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .cart.active {
+        bottom: 0;
+      }
+
+      .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+      }
+
+      .cart-item span {
+        cursor: pointer;
+        color: #e74c3c;
+        font-weight: bold;
+        margin-left: 10px;
+        transition: transform 0.2s ease;
+      }
+
+      .cart-item span:hover {
+        transform: scale(1.2);
+      }
+
+      .cart input,
+      .cart textarea {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      .total {
+        font-weight: bold;
+        color: #8a5a34;
+        margin: 10px 0;
+      }
+
+      .close {
+        cursor: pointer;
+        font-size: 14px;
+        color: #999;
+        margin-bottom: 10px;
+      }
+
+      .about-box {
+        background: rgba(255, 255, 255, 0.75);
+        padding: 30px 24px;
+        border-radius: 24px;
+        border: 1.5px solid rgba(212, 175, 55, 0.6);
+        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+      }
+
+      .ig-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 16px;
         font-weight: 600;
         color: #8a5a34;
-        margin-bottom: 15px;
-      }
-
-      .order-btn {
-        display: inline-block;
-        margin-top: 10px;
-        padding: 10px 18px;
-        background-color: #4b2a1a;
-        color: #ffffff;
-        border-radius: 20px;
         text-decoration: none;
-        font-size: 14px;
-        transition: 0.3s ease;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.25s ease;
       }
 
-      .order-btn:hover {
-        background-color: #6b3e2a;
+      .ig-link:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
       }
 
-      /* ================= FOOTER ================= */
-      footer {
-        background-color: #2b150c;
-        color: #ffffff;
-        text-align: center;
-        padding: 30px 15px;
-        font-size: 14px;
+      /* Ikon keranjang mini */
+      #cart-icon {
+        display: none; /* muncul hanya di menu */
+        position: fixed;
+        top: 80px;
+        right: 22px;
+        font-size: 28px;
+        background: #fff;
+        padding: 10px 14px;
+        border-radius: 50%;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        cursor: pointer;
+        z-index: 60;
+        transition: transform 0.2s ease, box-shadow 0.25s ease;
+      }
+
+      #cart-icon:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      }
+
+      #cart-count {
+        position: absolute;
+        top: -6px;
+        right: -6px;
+        background: #8a5a34;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 2px 6px;
+        border-radius: 999px;
       }
     </style>
   </head>
+
   <body>
-    <!-- HERO -->
-    <header>
-      <img src="logo_bakehug.jpg" alt="BakeHug Logo" />
-      <h1>BakeHug</h1>
-      <p>Sweet Comfort in Every Bite 🍫</p>
-      <div class="hero-btns">
-        <a
-          href="https://instagram.com/bakehug_ofc"
-          target="_blank"
-          class="btn-outline"
-          >Instagram</a
-        >
-        <a
-          href="https://wa.me/6289522434115"
-          target="_blank"
-          class="btn-primary"
-          >Order via WhatsApp</a
-        >
+    <nav>
+      <div style="font-family: Fredoka; font-weight: 600">BakeHug</div>
+      <div>
+        <a onclick="showPage('home', this)" class="active">Beranda</a>
+        <a onclick="showPage('menu', this)">Menu</a>
+        <a onclick="showPage('about', this)">Tentang</a>
       </div>
-    </header>
+    </nav>
+
+    <!-- Ikon keranjang mini -->
+    <div id="cart-icon" onclick="toggleCart(true)">
+      <i class="fas fa-shopping-cart"></i>
+      <div id="cart-count">0</div>
+    </div>
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+      <div class="logo"><img src="remove.png" /></div>
+      <h1>BakeHug</h1>
+      <p style="font-family: Pacifico; color: #8a5a34">
+        Sweet Comfort in Every Bite
+      </p>
+      <p>Brownies homemade yang siap jadi pelukan manis harimu 🤎</p>
+      <div class="btn" onclick="showPage('menu')">Eksplor Menu</div>
+    </section>
 
     <!-- MENU -->
-    <section>
+    <section id="menu" class="page">
       <h2>Menu Brownies</h2>
-      <p class="subtitle">
-        Pilih brownies favoritmu dan pesan langsung via WhatsApp
-      </p>
-
+      <img src="remove.png" class="mini-logo" />
       <div class="menu-grid">
         <div class="menu-card">
-          <img src="fudgy.jpeg" alt="Classic Fudgy" />
-          <h3>Classic Fudgy</h3>
-          <p class="price">Rp 25.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+          <img src="almond.jpeg" />
+          <h4>Almond</h4>
+          <p>Rp 40.000</p>
+          <input type="number" min="1" value="1" class="qty-input" />
+          <div class="btn" onclick="addItem('Almond Brownies',40000,this)">
+            Tambah
+          </div>
         </div>
-
         <div class="menu-card">
-          <img src="red velvet.jpg" alt="Red Velvet" />
-          <h3>Red Velvet</h3>
-          <p class="price">Rp 35.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+          <img src="fudgy.jpeg" />
+          <h4>Fudgy</h4>
+          <p>Rp 25.000</p>
+          <input type="number" min="1" value="1" class="qty-input" />
+          <div class="btn" onclick="addItem('Fudgy Brownies',25000,this)">
+            Tambah
+          </div>
         </div>
-
         <div class="menu-card">
-          <img src="matcha.jpg" alt="Matcha" />
-          <h3>Matcha Brownies</h3>
-          <p class="price">Rp 45.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+          <img src="fudgy2.jpeg" />
+          <h4>Chocochip</h4>
+          <p>Rp 30.000</p>
+          <input type="number" min="1" value="1" class="qty-input" />
+          <div class="btn" onclick="addItem('Chocochip Brownies',30000,this)">
+            Tambah
+          </div>
         </div>
-
         <div class="menu-card">
-          <img src="fudgy2.jpeg.jpg" alt="Choco Chip" />
-          <h3>Choco Chip Brownies</h3>
-          <p class="price">Rp 30.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
-        </div>
-
-        <div class="menu-card">
-          <img src="almond.jpeg" alt="Nutty Hug" />
-          <h3>Almond Brownies</h3>
-          <p class="price">Rp 40.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
-        </div>
-
-        <div class="menu-card">
-          <img src="oreo.jpeg" alt="Cheese Brownies" />
-          <h3>Oreo Brownies</h3>
-          <p class="price">Rp 26.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
-        </div>
-
-        <div class="menu-card">
-          <img src="stoberi.jpeg" alt="Cheese Brownies" />
-          <h3> Strawberry Brownies</h3>
-          <p class="price">Rp 50.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
-        </div>
-
-        <div class="menu-card">
-          <img src="keju.jpeg" alt="Cheese Brownies" />
-          <h3>Cheese Brownies</h3>
-          <p class="price">Rp 38.000</p>
-          <a href="https://wa.me/6289522434115" class="order-btn">Pesan</a>
+          <img src="oreo.jpeg" />
+          <h4>Oreo</h4>
+          <p>Rp 20.000</p>
+          <input type="number" min="1" value="1" class="qty-input" />
+          <div class="btn" onclick="addItem('Oreo Brownies',20000,this)">
+            Tambah
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>© 2025 BakeHug Brownies • Palembang, Indonesia</footer>
+    <!-- ABOUT -->
+    <section id="about" class="page">
+      <div class="about-box">
+        <h2>Tentang BakeHug</h2>
+        <img src="remove.png" class="mini-logo" />
+        <p style="line-height: 1.7">
+          BakeHug adalah brand brownies homemade yang lahir dari kecintaan kami
+          terhadap coklat dan cemilan manis yang bikin hari jadi lebih mood. 🤎
+          <br /><br />
+          Semua brownies BakeHug dibuat fresh, dan menggunakan bahan pilihan.
+          Cocok buat nemenin nugas, santai sore, atau sekadar self-reward manis.
+          <br /><br />
+          Kami punya beberapa varian favorit seperti Almond Brownies, Fudgy
+          Brownies, Chocochip Brownies, dan Oreo Brownies yang cocok dinikmati
+          kapan saja.
+          <br /><br />
+          Kami juga aktif berbagi update produk, promo lewat Instagram kami yang
+          tertera dibawah ini 👇🏻
+        </p>
+        <a
+          href="https://instagram.com/bakehug_ofc"
+          target="_blank"
+          class="ig-link"
+        >
+          <i class="fab fa-instagram"></i> @bakehug_ofc
+        </a>
+      </div>
+    </section>
+
+    <!-- CART -->
+    <div class="cart" id="cart">
+      <div class="close" onclick="toggleCart(false)">✕ Tutup</div>
+      <h3>Pesanan Kamu</h3>
+      <div id="items"></div>
+
+      <input id="name" placeholder="Nama Lengkap" />
+      <input id="wa" placeholder="Nomor WhatsApp" />
+      <textarea id="note" placeholder="Catatan (opsional)"></textarea>
+
+      <div class="total" id="total"></div>
+      <div class="btn" onclick="checkout()">Checkout via WhatsApp</div>
+    </div>
+
+    <script>
+      let cart = [];
+
+      function showPage(id, el = null) {
+        document
+          .querySelectorAll(".page")
+          .forEach((p) => p.classList.remove("active"));
+        document.getElementById(id).classList.add("active");
+
+        document
+          .querySelectorAll("nav a")
+          .forEach((a) => a.classList.remove("active"));
+        if (el) el.classList.add("active");
+
+        // Tampilkan ikon keranjang hanya di halaman Menu
+        const cartIcon = document.getElementById("cart-icon");
+        cartIcon.style.display = id === "menu" ? "block" : "none";
+      }
+
+      function addItem(name, price, btnEl) {
+        const qtyInput = btnEl.previousElementSibling;
+        const qty = parseInt(qtyInput.value) || 1;
+
+        const found = cart.find((i) => i.name === name);
+        if (found) found.qty += qty;
+        else cart.push({ name, price, qty });
+
+        renderCart();
+        toggleCart(true);
+
+        btnEl.style.transform = "scale(1.1)";
+        setTimeout(() => {
+          btnEl.style.transform = "scale(1)";
+        }, 150);
+      }
+
+      function renderCart() {
+        let html = "",
+          total = 0;
+        cart.forEach((i, idx) => {
+          total += i.price * i.qty;
+          html += `
+            <div class="cart-item">
+              ${i.name} x${i.qty}
+              <span onclick="removeItem(${idx})">Batal ✕</span>
+            </div>`;
+        });
+        document.getElementById("items").innerHTML = html;
+        document.getElementById("total").innerText =
+          "Total: Rp " + total.toLocaleString();
+        document.getElementById("cart-count").innerText = cart.reduce(
+          (a, b) => a + b.qty,
+          0
+        );
+      }
+
+      function removeItem(i) {
+        cart.splice(i, 1);
+        renderCart();
+      }
+
+      function toggleCart(open) {
+        document.getElementById("cart").classList.toggle("active", open);
+      }
+
+      function checkout() {
+        if (!cart.length) return alert("Keranjang kosong");
+        const name = document.getElementById("name").value;
+        const wa = document.getElementById("wa").value;
+        if (!name || !wa) return alert("Lengkapi data dulu");
+
+        let text = `Halo BakeHug,%0ASaya ${name} (%2B${wa})%0APesan:%0A`;
+        cart.forEach((i) => (text += `- ${i.name} x${i.qty}%0A`));
+        window.open(`https://wa.me/6289522434115?text=${text}`, "_blank");
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        showPage("home");
+      });
+    </script>
   </body>
 </html>
-
-
