@@ -331,7 +331,7 @@
           </div>
         </div>
         <div class="menu-card">
-          <img src="chocochip.jpeg" />
+          <img src="chocochips.jpeg" />
           <h4>Chocochip</h4>
           <p>Rp 30.000</p>
           <input type="number" min="1" value="1" class="qty-input" />
@@ -389,6 +389,23 @@
       <input id="name" placeholder="Nama Lengkap" />
       <input id="wa" placeholder="Nomor WhatsApp" />
       <textarea id="note" placeholder="Catatan (opsional)"></textarea>
+      <input id="address" placeholder="Alamat Lengkap Pengiriman" />
+
+      <select
+        id="payment"
+        style="
+          width: 100%;
+          padding: 12px;
+          border-radius: 12px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+        "
+      >
+        <option value="">Pilih Metode Pembayaran</option>
+        <option value="COD">COD (Bayar di Tempat)</option>
+        <option value="Transfer Bank">Transfer Bank</option>
+        <option value="E-Wallet">E-Wallet (OVO / DANA / Gopay)</option>
+      </select>
 
       <div class="total" id="total"></div>
       <div class="btn" onclick="checkout()">Checkout via WhatsApp</div>
@@ -463,9 +480,22 @@
         if (!cart.length) return alert("Keranjang kosong");
         const name = document.getElementById("name").value;
         const wa = document.getElementById("wa").value;
+        const address = document.getElementById("address").value;
+        const payment = document.getElementById("payment").value;
+        const note = document.getElementById("note").value || "-";
         if (!name || !wa) return alert("Lengkapi data dulu");
+        if (!address || !payment)
+          return alert("Lengkapi alamat dan metode pembayaran");
+        let text =
+          `Halo BakeHug 🤎%0A%0A` +
+          `Saya ingin melakukan pemesanan brownies dengan detail berikut:%0A%0A` +
+          `Nama Pemesan: ${name}%0A` +
+          `Nomor WhatsApp: ${wa}%0A` +
+          `Alamat Pengiriman: ${address}%0A` +
+          `Metode Pembayaran: ${payment}%0A%0A` +
+          `Detail Pesanan:%0A`;
+        text += `%0ACatatan: ${note || "-"}%0A%0ATerima kasih 🙏`;
 
-        let text = `Halo BakeHug,%0ASaya ${name} (%2B${wa})%0APesan:%0A`;
         cart.forEach((i) => (text += `- ${i.name} x${i.qty}%0A`));
         window.open(`https://wa.me/6289522434115?text=${text}`, "_blank");
       }
@@ -476,6 +506,3 @@
     </script>
   </body>
 </html>
-
-
-
