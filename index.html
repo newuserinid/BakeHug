@@ -5,13 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BakeHug – Homemade Brownies</title>
 
-    <!-- GOOGLE FONTS -->
     <link
       href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Pacifico&family=Quicksand:wght@400;600&display=swap"
       rel="stylesheet"
     />
-
-    <!-- ICON -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -31,33 +28,27 @@
       nav {
         position: sticky;
         top: 0;
-        z-index: 20;
-        background: rgba(255, 255, 255, 0.9);
+        background: #fff;
+        padding: 14px 22px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 14px 22px;
+        z-index: 20;
       }
 
       nav a {
+        color: #8a5a34;
         margin-left: 14px;
         font-weight: 600;
-        color: #6b3e27;
         cursor: pointer;
-        text-decoration: none;
-        padding: 6px 12px;
+        padding: 6px 14px;
         border-radius: 999px;
         transition: 0.25s;
       }
 
       nav a:hover {
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-        transform: scale(1.05);
-      }
-
-      nav a.active {
-        background: #8a5a34;
-        color: #fff;
+        transform: scale(1.08);
       }
 
       .page {
@@ -66,63 +57,23 @@
         margin: auto;
         padding: 40px 20px;
         text-align: center;
-        animation: fade 0.35s ease;
       }
 
       .page.active {
         display: block;
       }
 
-      @keyframes fade {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
       .logo img {
         width: 170px;
         border-radius: 50%;
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-        transition: box-shadow 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+        transition: 0.3s;
       }
 
       .logo img:hover {
+        transform: scale(1.08);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-        transform: scale(1.05);
-      }
-
-      .mini-logo {
-        width: 60px;
-        margin: 12px auto 0;
-        opacity: 0.85;
-      }
-
-      h1 {
-        font-family: "Fredoka";
-        font-size: 44px;
-      }
-
-      .btn {
-        background: #8a5a34;
-        color: #fff;
-        border-radius: 999px;
-        padding: 12px 26px;
-        font-weight: 600;
-        cursor: pointer;
-        display: inline-block;
-        margin-top: 14px;
-        transition: transform 0.2s ease, box-shadow 0.25s ease;
-      }
-
-      .btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
       }
 
       .menu-grid {
@@ -135,241 +86,223 @@
       .menu-card {
         background: #fff;
         border-radius: 22px;
-        padding: 16px;
+        padding: 14px;
         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-        transition: box-shadow 0.3s ease, transform 0.2s ease;
-        cursor: pointer;
+        transition: 0.25s;
       }
 
       .menu-card:hover {
+        transform: scale(1.04);
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
-        transform: scale(1.03);
       }
 
       .menu-card img {
         width: 100%;
-        height: 180px;
+        height: 160px;
         object-fit: cover;
         border-radius: 16px;
       }
 
-      .menu-card input.qty-input {
-        width: 60px;
-        padding: 6px;
-        margin: 8px 0;
-        border-radius: 8px;
-        border: 1px solid #ccc;
-        text-align: center;
-      }
-
-      .cart {
-        position: fixed;
-        left: 0;
-        right: 0;
-        bottom: -100%;
-        background: #fff;
-        border-radius: 26px 26px 0 0;
-        padding: 22px;
-        transition: 0.45s;
-        z-index: 50;
-        box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.25);
-      }
-
-      .cart.active {
-        bottom: 0;
-      }
-
-      .cart-item {
+      .qty-box {
         display: flex;
-        justify-content: space-between;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      .cart-item span {
-        cursor: pointer;
-        color: #e74c3c;
-        font-weight: bold;
-        margin-left: 10px;
-        transition: transform 0.2s ease;
-      }
-
-      .cart-item span:hover {
-        transform: scale(1.2);
-      }
-
-      .cart input,
-      .cart textarea {
-        width: 100%;
-        padding: 12px;
-        border-radius: 12px;
-        border: 1px solid #ccc;
-        margin-bottom: 10px;
-      }
-
-      .total {
-        font-weight: bold;
-        color: #8a5a34;
-        margin: 10px 0;
-      }
-
-      .close {
-        cursor: pointer;
-        font-size: 14px;
-        color: #999;
-        margin-bottom: 10px;
-      }
-
-      .about-box {
-        background: rgba(255, 255, 255, 0.75);
-        padding: 30px 24px;
-        border-radius: 24px;
-        border: 1.5px solid rgba(212, 175, 55, 0.6);
-        box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
-      }
-
-      .ig-link {
-        display: inline-flex;
+        justify-content: center;
         align-items: center;
         gap: 10px;
-        margin-top: 16px;
-        font-weight: 600;
-        color: #8a5a34;
-        text-decoration: none;
-        cursor: pointer;
-        transition: transform 0.2s ease, box-shadow 0.25s ease;
+        margin-top: 10px;
       }
 
-      .ig-link:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
-      }
-
-      /* Ikon keranjang mini */
-      #cart-icon {
-        display: none; /* muncul hanya di menu */
-        position: fixed;
-        top: 80px;
-        right: 22px;
-        font-size: 28px;
-        background: #fff;
-        padding: 10px 14px;
+      .qty-box button {
+        width: 32px;
+        height: 32px;
+        border: none;
         border-radius: 50%;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        background: #8a5a34;
+        color: #fff;
+        font-weight: bold;
         cursor: pointer;
-        z-index: 60;
-        transition: transform 0.2s ease, box-shadow 0.25s ease;
       }
 
-      #cart-icon:hover {
-        transform: scale(1.1);
-        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      /* ICON KERANJANG */
+      .cart-icon {
+        position: fixed;
+        right: 22px;
+        bottom: 22px;
+        background: #8a5a34;
+        color: #fff;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        cursor: pointer;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.35);
+        z-index: 90;
       }
 
-      #cart-count {
+      .cart-icon span {
         position: absolute;
         top: -6px;
         right: -6px;
-        background: #8a5a34;
-        color: #fff;
+        background: #fff;
+        color: #8a5a34;
         font-size: 12px;
-        font-weight: 600;
         padding: 2px 6px;
         border-radius: 999px;
+        font-weight: 700;
+      }
+
+      /* CART SAMPING */
+      .cart {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 320px;
+        height: 100%;
+        background: #fff;
+        padding: 20px;
+        transition: 0.4s;
+        z-index: 100;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+        overflow: auto;
+      }
+
+      .cart.active {
+        right: 0;
+      }
+
+      .cart h3 {
+        font-family: Fredoka;
+        color: #8a5a34;
+      }
+
+      .cart-item {
+        border-bottom: 1px dashed #ccc;
+        padding: 10px 0;
+        font-size: 14px;
+      }
+
+      .cart-item b {
+        display: block;
+      }
+
+      .cart-item span {
+        color: #e74c3c;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 12px;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+      }
+
+      .btn {
+        background: #8a5a34;
+        color: #fff;
+        border-radius: 999px;
+        padding: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        margin-top: 10px;
       }
     </style>
   </head>
 
   <body>
     <nav>
-      <div style="font-family: Fredoka; font-weight: 600">BakeHug</div>
+      <div style="font-family: Fredoka; color: #8a5a34">BakeHug</div>
       <div>
-        <a onclick="showPage('home', this)" class="active">Beranda</a>
-        <a onclick="showPage('menu', this)">Menu</a>
-        <a onclick="showPage('about', this)">Tentang</a>
+        <a onclick="showPage('home')">Beranda</a>
+        <a onclick="showPage('menu')">Menu</a>
+        <a onclick="showPage('about')">Tentang</a>
       </div>
     </nav>
 
-    <!-- Ikon keranjang mini -->
-    <div id="cart-icon" onclick="toggleCart(true)">
-      <i class="fas fa-shopping-cart"></i>
-      <div id="cart-count">0</div>
-    </div>
-
-    <!-- HOME -->
     <section id="home" class="page active">
       <div class="logo"><img src="remove.png" /></div>
-      <h1>BakeHug</h1>
+      <h1 style="font-family: Fredoka">BakeHug</h1>
       <p style="font-family: Pacifico; color: #8a5a34">
         Sweet Comfort in Every Bite
+        <br /><br />
+        Brownies Homemade yang siap jadi pelukan manis harimu🤎
       </p>
-      <p>Brownies homemade yang siap jadi pelukan manis harimu 🤎</p>
-      <div class="btn" onclick="showPage('menu')">Eksplor Menu</div>
     </section>
 
-    <!-- MENU -->
     <section id="menu" class="page">
       <h2>Menu Brownies</h2>
-      <img src="remove.png" class="mini-logo" />
       <div class="menu-grid">
         <div class="menu-card">
           <img src="almond.jpeg" />
-          <h4>Almond</h4>
+          <h4>Almond Brownies</h4>
           <p>Rp 40.000</p>
-          <input type="number" min="1" value="1" class="qty-input" />
-          <div class="btn" onclick="addItem('Almond Brownies',40000,this)">
-            Tambah
+          <div class="qty-box">
+            <button onclick="updateQty('Almond',40000,-1)">-</button>
+            <span id="Almond">0</span>
+            <button onclick="updateQty('Almond',40000,1)">+</button>
           </div>
         </div>
+
         <div class="menu-card">
           <img src="fudgy.jpeg" />
-          <h4>Fudgy</h4>
+          <h4>Fudgy Brownies</h4>
           <p>Rp 25.000</p>
-          <input type="number" min="1" value="1" class="qty-input" />
-          <div class="btn" onclick="addItem('Fudgy Brownies',25000,this)">
-            Tambah
-          </div>
-        </div>
-        <div class="menu-card">
-          <img src="chocochip.jpeg" />
-          <h4>Chocochip</h4>
-          <p>Rp 30.000</p>
-          <input type="number" min="1" value="1" class="qty-input" />
-          <div class="btn" onclick="addItem('Chocochip Brownies',30000,this)">
-            Tambah
+          <div class="qty-box">
+            <button onclick="updateQty('Fudgy',25000,-1)">-</button>
+            <span id="Fudgy">0</span>
+            <button onclick="updateQty('Fudgy',25000,1)">+</button>
           </div>
         </div>
         <div class="menu-card">
           <img src="oreo.jpeg" />
-          <h4>Oreo</h4>
+          <h4>Oreo Brownies</h4>
           <p>Rp 20.000</p>
-          <input type="number" min="1" value="1" class="qty-input" />
-          <div class="btn" onclick="addItem('Oreo Brownies',20000,this)">
-            Tambah
+          <div class="qty-box">
+            <button onclick="updateQty('Oreo',20000,-1)">-</button>
+            <span id="Oreo">0</span>
+            <button onclick="updateQty('Oreo',20000,1)">+</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <img src="chocochip.jpeg" />
+          <h4>Chocochip Brownies</h4>
+          <p>Rp 30.000</p>
+          <div class="qty-box">
+            <button onclick="updateQty('Chocochip',30000,-1)">-</button>
+            <span id="Chocochip">0</span>
+            <button onclick="updateQty('Chocochip',30000,1)">+</button>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="page">
-      <div class="about-box">
-        <h2>Tentang BakeHug</h2>
-        <img src="remove.png" class="mini-logo" />
-        <p style="line-height: 1.7">
-          BakeHug adalah brand brownies homemade yang lahir dari kecintaan kami
-          terhadap coklat dan cemilan manis yang bikin hari jadi lebih mood. 🤎
-          <br /><br />
-          Semua brownies BakeHug dibuat fresh, dan menggunakan bahan pilihan.
-          Cocok buat nemenin nugas, santai sore, atau sekadar self-reward manis.
-          <br /><br />
-          Kami punya beberapa varian favorit seperti Almond Brownies, Fudgy
-          Brownies, Chocochip Brownies, dan Oreo Brownies yang cocok dinikmati
-          kapan saja.
-          <br /><br />
-          Kami juga aktif berbagi update produk, promo lewat Instagram kami yang
-          tertera dibawah ini 👇🏻
-        </p>
+      <h2>Tentang BakeHug</h2>
+      <p>
+        BakeHug adalah brand brownies homemade yang lahir dari kecintaan kami
+        terhadap coklat dan cemilan manis yang bikin hari jadi lebih mood.🤎
+        <br /><br />
+
+        BakeHug dibuat dari cinta pada brownies homemade. Kami percaya bahwa
+        rasa hangat dan coklat yang rich bisa membuat hari terasa lebih baik 🤎
+        <br /><br />
+
+        Semua brownies BakeHug dibuat secara fresh dan menggunakan bahan
+        pilihan. Cocok untuk menemani nugas, santai sore, atau sekadar
+        self-reward manis setelah hari yang panjang.
+        <br /><br />
+
+        Kami juga aktif berbagi update produk dan promo terbaru melalui
+        Instagram kami yang tertera di bawah ini 👇🏻
+        <br /><br />
+
         <a
           href="https://instagram.com/bakehug_ofc"
           target="_blank"
@@ -377,133 +310,139 @@
         >
           <i class="fab fa-instagram"></i> @bakehug_ofc
         </a>
-      </div>
+      </p>
     </section>
+
+    <!-- ICON KERANJANG -->
+    <div class="cart-icon" id="cartIcon" onclick="toggleCart(true)">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="cartCount">0</span>
+    </div>
 
     <!-- CART -->
     <div class="cart" id="cart">
-      <div class="close" onclick="toggleCart(false)">✕ Tutup</div>
-      <h3>Pesanan Kamu</h3>
-      <div id="items"></div>
+      <h3>Ringkasan Pesanan</h3>
+      <div id="cartItems"></div>
 
-      <input id="name" placeholder="Nama Lengkap" />
-      <input id="wa" placeholder="Nomor WhatsApp" />
-      <textarea id="note" placeholder="Catatan (opsional)"></textarea>
-      <input id="address" placeholder="Alamat Lengkap Pengiriman" />
+      <p><b>Total Item:</b> <span id="totalItem">0</span></p>
+      <p><b>Total Harga:</b> <span id="totalPrice">Rp 0</span></p>
 
-      <select
-        id="payment"
-        style="
-          width: 100%;
-          padding: 12px;
-          border-radius: 12px;
-          border: 1px solid #ccc;
-          margin-bottom: 10px;
-        "
-      >
-        <option value="">Pilih Metode Pembayaran</option>
-        <option value="COD">COD (Bayar di Tempat)</option>
-        <option value="Transfer Bank">Transfer Bank</option>
-        <option value="E-Wallet">E-Wallet (OVO / DANA / Gopay)</option>
+      <input placeholder="Nama" />
+      <input placeholder="WhatsApp" />
+      <input placeholder="Alamat" />
+
+      <select>
+        <option>Metode Pembayaran</option>
+        <option>Transfer Bank</option>
+        <option>E-Wallet</option>
       </select>
 
-      <div class="total" id="total"></div>
-      <div class="btn" onclick="checkout()">Checkout via WhatsApp</div>
+      <div class="btn" onclick="toggleCart(false)">Tutup</div>
+      <div class="btn" onclick="checkout()">Pesan via WhatsApp</div>
     </div>
 
     <script>
-      let cart = [];
+      let cart = {};
 
-      function showPage(id, el = null) {
+      function checkout() {
+        if (Object.keys(cart).length === 0) {
+          alert("Keranjang masih kosong");
+          return;
+        }
+
+        const name = document.querySelector('input[placeholder="Nama"]').value;
+        const wa = document.querySelector(
+          'input[placeholder="WhatsApp"]'
+        ).value;
+        const address = document.querySelector(
+          'input[placeholder="Alamat"]'
+        ).value;
+        const payment = document.querySelector("select").value;
+
+        if (!name || !wa || !address || payment === "Metode Pembayaran") {
+          alert("Lengkapi data pemesanan dulu ya 🤎");
+          return;
+        }
+
+        let text = `Halo BakeHug 🤎%0A`;
+        text += `Saya ingin memesan brownies dengan detail berikut:%0A%0A`;
+        text += `🧾 *Detail Pesanan:*%0A`;
+
+        let total = 0;
+        let item = 0;
+
+        for (let i in cart) {
+          let price = i === "Almond" ? 40000 : 25000;
+          let sub = price * cart[i];
+          total += sub;
+          item += cart[i];
+          text += `- ${i} x${cart[i]} (Rp ${sub.toLocaleString()})%0A`;
+        }
+
+        text += `%0A📦 Total Item: ${item}`;
+        text += `%0A💰 Total Harga: Rp ${total.toLocaleString()}`;
+        text += `%0A%0A👤 Nama: ${name}`;
+        text += `%0A📞 WhatsApp: ${wa}`;
+        text += `%0A📍 Alamat: ${address}`;
+        text += `%0A💳 Metode Pembayaran: ${payment}`;
+        text += `%0A%0ATerima kasih 🤎`;
+
+        window.open(`https://wa.me/6289522434115?text=${text}`, "_blank");
+      }
+
+      function showPage(id) {
         document
           .querySelectorAll(".page")
           .forEach((p) => p.classList.remove("active"));
         document.getElementById(id).classList.add("active");
 
-        document
-          .querySelectorAll("nav a")
-          .forEach((a) => a.classList.remove("active"));
-        if (el) el.classList.add("active");
+        document.getElementById("cartIcon").style.display =
+          id === "menu" ? "flex" : "none";
 
-        // Tampilkan ikon keranjang hanya di halaman Menu
-        const cartIcon = document.getElementById("cart-icon");
-        cartIcon.style.display = id === "menu" ? "block" : "none";
+        if (id !== "menu") toggleCart(false);
       }
 
-      function addItem(name, price, btnEl) {
-        const qtyInput = btnEl.previousElementSibling;
-        const qty = parseInt(qtyInput.value) || 1;
-
-        const found = cart.find((i) => i.name === name);
-        if (found) found.qty += qty;
-        else cart.push({ name, price, qty });
-
+      function updateQty(name, price, change) {
+        cart[name] = (cart[name] || 0) + change;
+        if (cart[name] <= 0) delete cart[name];
+        document.getElementById(name).innerText = cart[name] || 0;
         renderCart();
-        toggleCart(true);
-
-        btnEl.style.transform = "scale(1.1)";
-        setTimeout(() => {
-          btnEl.style.transform = "scale(1)";
-        }, 150);
       }
 
       function renderCart() {
         let html = "",
-          total = 0;
-        cart.forEach((i, idx) => {
-          total += i.price * i.qty;
+          total = 0,
+          item = 0;
+        for (let i in cart) {
+          let price = i === "Almond" ? 40000 : 25000;
+          let sub = price * cart[i];
+          total += sub;
+          item += cart[i];
           html += `
-            <div class="cart-item">
-              ${i.name} x${i.qty}
-              <span onclick="removeItem(${idx})">Batal ✕</span>
-            </div>`;
-        });
-        document.getElementById("items").innerHTML = html;
-        document.getElementById("total").innerText =
-          "Total: Rp " + total.toLocaleString();
-        document.getElementById("cart-count").innerText = cart.reduce(
-          (a, b) => a + b.qty,
-          0
-        );
+<div class="cart-item">
+<b>${i}</b>
+${cart[i]} x Rp ${price.toLocaleString()}
+<br>Subtotal: Rp ${sub.toLocaleString()}
+<br><span onclick="removeItem('${i}')">Batal ✕</span>
+</div>`;
+        }
+        document.getElementById("cartItems").innerHTML =
+          html || "<p>Keranjang kosong</p>";
+        document.getElementById("totalPrice").innerText =
+          "Rp " + total.toLocaleString();
+        document.getElementById("totalItem").innerText = item;
+        document.getElementById("cartCount").innerText = item;
       }
 
-      function removeItem(i) {
-        cart.splice(i, 1);
+      function removeItem(name) {
+        delete cart[name];
+        document.getElementById(name).innerText = 0;
         renderCart();
       }
 
-      function toggleCart(open) {
-        document.getElementById("cart").classList.toggle("active", open);
+      function toggleCart(o) {
+        document.getElementById("cart").classList.toggle("active", o);
       }
-
-      function checkout() {
-        if (!cart.length) return alert("Keranjang kosong");
-        const name = document.getElementById("name").value;
-        const wa = document.getElementById("wa").value;
-        const address = document.getElementById("address").value;
-        const payment = document.getElementById("payment").value;
-        const note = document.getElementById("note").value || "-";
-        if (!name || !wa) return alert("Lengkapi data dulu");
-        if (!address || !payment)
-          return alert("Lengkapi alamat dan metode pembayaran");
-        let text =
-          `Halo BakeHug 🤎%0A%0A` +
-          `Saya ingin melakukan pemesanan brownies dengan detail berikut:%0A%0A` +
-          `Nama Pemesan: ${name}%0A` +
-          `Nomor WhatsApp: ${wa}%0A` +
-          `Alamat Pengiriman: ${address}%0A` +
-          `Metode Pembayaran: ${payment}%0A%0A` +
-          `Detail Pesanan:%0A`;
-        text += `%0ACatatan: ${note || "-"}%0A%0ATerima kasih 🙏`;
-
-        cart.forEach((i) => (text += `- ${i.name} x${i.qty}%0A`));
-        window.open(`https://wa.me/6289522434115?text=${text}`, "_blank");
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        showPage("home");
-      });
     </script>
   </body>
 </html>
-
