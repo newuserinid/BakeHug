@@ -68,59 +68,66 @@
         background: #f1dfc8;
       }
 
+      /* LOGO BERANDA DIPERBESAR */
       .page {
         display: none;
         max-width: 600px;
         margin: auto;
-        padding: 30px 20px;
+        padding: 40px 20px;
         text-align: center;
       }
       .page.active {
         display: block;
       }
       .logo img {
-        width: 130px;
+        width: 180px;
         border-radius: 50%;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        margin-bottom: 15px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        margin-bottom: 20px;
       }
 
+      /* GRID DAN KARTU MENU DIPERBESAR */
       .menu-grid {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        margin-top: 20px;
+        gap: 20px;
+        margin-top: 25px;
       }
       .menu-card {
         background: #fff;
-        border-radius: 20px;
-        padding: 12px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        border-radius: 22px;
+        padding: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
         transition: 0.3s;
         position: relative;
       }
       .menu-card img {
         width: 100%;
-        height: 120px;
+        height: 160px;
         object-fit: cover;
-        border-radius: 15px;
+        border-radius: 18px;
+      }
+      .menu-card h4 {
+        margin: 12px 0 5px;
+        font-size: 16px;
       }
 
       .qty-box {
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        margin-top: 10px;
+        gap: 12px;
+        margin-top: 12px;
       }
       .qty-box button {
-        width: 28px;
-        height: 28px;
+        width: 32px;
+        height: 32px;
         border: none;
         border-radius: 50%;
         background: #8a5a34;
         color: #fff;
         cursor: pointer;
+        font-size: 16px;
       }
 
       .history-card {
@@ -195,6 +202,8 @@
         font-family: inherit;
         font-size: 13px;
         outline: none;
+        box-sizing: border-box;
+        background-color: #fff;
       }
       .btn {
         background: #8a5a34;
@@ -221,13 +230,13 @@
         bottom: 20px;
         background: #8a5a34;
         color: #fff;
-        width: 55px;
-        height: 55px;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         display: none;
         align-items: center;
         justify-content: center;
-        font-size: 22px;
+        font-size: 24px;
         z-index: 150;
         box-shadow: 0 8px 20px rgba(138, 90, 52, 0.4);
         cursor: pointer;
@@ -297,21 +306,35 @@
 
     <section id="home" class="page active fade-in">
       <div class="logo"><img src="remove.png" alt="Logo" /></div>
-      <h1 style="font-family: Fredoka">BakeHug</h1>
-      <p style="font-family: Pacifico; color: #8a5a34">
+      <h1 style="font-family: Fredoka; font-size: 32px; margin-bottom: 5px">
+        BakeHug
+      </h1>
+      <p
+        style="
+          font-family: Pacifico;
+          color: #8a5a34;
+          font-size: 20px;
+          margin-bottom: 25px;
+        "
+      >
         Sweet Comfort in Every Bite
       </p>
       <div
         class="btn"
         onclick="showPage('menu')"
-        style="display: inline-block; width: auto; padding: 12px 30px"
+        style="
+          display: inline-block;
+          width: auto;
+          padding: 15px 40px;
+          font-size: 16px;
+        "
       >
         Mulai Belanja
       </div>
     </section>
 
     <section id="menu" class="page fade-in">
-      <h3 style="font-family: Fredoka">Varian Brownies</h3>
+      <h3 style="font-family: Fredoka; font-size: 24px">Varian Brownies</h3>
       <div class="menu-grid">
         <div class="menu-card">
           <img src="almond.jpeg" />
@@ -379,15 +402,20 @@
         style="margin-top: 15px; border-top: 1px solid #eee; padding-top: 15px"
       >
         <input type="text" id="custName" placeholder="Nama Penerima" />
-        <input type="tel" id="custWA" placeholder="WhatsApp" />
+        <input
+          type="tel"
+          id="custWA"
+          placeholder="WhatsApp (Contoh: 0812...)"
+        />
         <textarea
           id="custAddress"
           placeholder="Alamat Pengiriman"
           rows="2"
         ></textarea>
+
         <select id="custPayment">
-          <option value="">Pilih Pembayaran</option>
-          <option value="Transfer Bank">Transfer Bank (BSI)</option>
+          <option value="" disabled selected hidden>Pilih Pembayaran</option>
+          <option value="Transfer Bank (BSI)">Transfer Bank (BSI)</option>
           <option value="Dana">Dana</option>
         </select>
       </div>
@@ -461,6 +489,7 @@
 
     <script>
       let cart = {};
+      let waTextGlobal = "";
       let currentOrderData = null;
 
       function showPage(id) {
@@ -480,7 +509,6 @@
         updateUI();
       }
 
-      // FUNGSI UNTUK HAPUS ITEM DARI KERANJANG
       function removeItem(name) {
         delete cart[name];
         document.getElementById(name).innerText = 0;
@@ -541,13 +569,16 @@
           `*PESANAN BAKEHUG*%0A%0A` +
           `Halo Admin, saya mau pesan:%0A${waItems}%0A` +
           `*Data Penerima:*%0A` +
-          `• Nama: ${name}%0A• Alamat: ${addr}%0A%0A` +
+          `• Nama: ${name}%0A` +
+          `• WhatsApp: ${wa}%0A` +
+          `• Alamat: ${addr}%0A%0A` +
           `*Total:* *Rp ${totalFinal.toLocaleString()}*%0A` +
           `*Metode:* ${pay}`;
 
         currentOrderData = {
           date: new Date().toLocaleString("id-ID"),
           name,
+          wa,
           address: addr,
           payment: pay,
           items: summary.slice(0, -2),
@@ -591,7 +622,7 @@
             <div class="history-header">📅 ${h.date}</div>
             <div class="history-detail"><span class="history-label">Penerima</span>${
               h.name
-            } (${h.payment})</div>
+            } (${h.wa})</div>
             <div class="history-detail"><span class="history-label">Alamat</span>${
               h.address
             }</div>
@@ -599,11 +630,7 @@
               h.items
             }</div>
             <div style="background: #fffef2; padding: 10px; border-radius: 8px; margin-top: 10px; font-size:12px;">
-              <div style="display:flex; justify-content:space-between;"><span>Subtotal</span><span>Rp ${h.subtotal.toLocaleString()}</span></div>
-              <div style="display:flex; justify-content:space-between;"><span>Ongkir</span><span>Rp ${h.ongkir.toLocaleString()}</span></div>
-              <div style="display:flex; justify-content:space-between; font-weight:700; color:#8a5a34; border-top:1px solid #f1dfc8; margin-top:5px; padding-top:5px;">
-                <span>Total</span><span>Rp ${h.total.toLocaleString()}</span>
-              </div>
+              <div style="display:flex; justify-content:space-between;"><span>Total Bayar</span><span style="font-weight:700; color:#8a5a34;">Rp ${h.total.toLocaleString()}</span></div>
             </div>
           </div>
         `
@@ -620,4 +647,3 @@
     </script>
   </body>
 </html>
-
